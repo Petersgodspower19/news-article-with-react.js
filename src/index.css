@@ -1,0 +1,167 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  overflow-x: hidden;
+  background-color: #C9DABF;
+  color: #C9DABF;
+  min-width: 100%;
+  min-height: 100vh;
+}
+
+header{
+  width: 100%;
+  padding: 1rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #5F6F65;
+  }
+header .form{
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+header input {
+  width: 200px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+}
+select{
+  background-color: #9CA986;
+  color: white;
+  padding: 5px;
+  width: 120px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+header button{
+  padding: 5px;
+  width: 70px;
+  border-radius: 5px;
+  background-color: #9CA986;
+    border: none;
+    color: white;
+}
+
+.main-container{
+  margin: auto;
+}
+
+#news-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 1rem 0.8rem;
+}
+.article {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  margin: 20px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  animation: light 2s both;
+}
+
+@keyframes light{
+   0%{opacity: 0; }
+   100%{opacity: 1; }
+}
+
+.article:hover {
+  transform: translateY(-5px);
+}
+
+
+.article img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+
+.article div {
+  padding: 20px;
+}
+
+.article h5 {
+  margin: 0 0 10px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.article p {
+  margin: 0 0 10px;
+  color: #666;
+}
+
+.article a {
+  color: hsl(98, 27%, 50%);
+  text-decoration: none;
+}
+
+.article a:hover {
+  text-decoration: underline;
+}
+
+.article h6 {
+  margin: 10px 0 0;
+  font-size: 0.9em;
+  color: #888;
+}
+.button-holder{
+  display: flex;
+  justify-content: center;
+}
+#refresh{
+  padding:8px;
+  border-radius: 5px;
+  border: none;
+  background-color: #9CA986;
+  color: white;
+  font-weight: 600;
+  width: 100px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+
+
+@media(max-width:760px) {
+  header .form{
+    display: none;
+  }
+  #news-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem 0.8rem;
+    width: 100%;
+  }
+  .article{
+    width: 100%;
+    margin: auto;
+  }
+}
+@media(max-width:480px) {
+  header .form{
+    display: none;
+  }
+  #news-container {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 1rem 0.8rem;
+    width: 100%;
+  }
+  .article{
+    width: 300px;
+    margin: auto;
+  }
+}
