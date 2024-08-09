@@ -6,6 +6,4 @@ const links = [
     "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=db87e9cd162147e4968361973325e619"
 
 ]
-
-
 export default links

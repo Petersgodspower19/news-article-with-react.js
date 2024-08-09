@@ -1,5 +1,3 @@
-import React from 'react';
-
 function Header({ handleChange }) {
   const date = new Date();
   const currentDate = date.toDateString();

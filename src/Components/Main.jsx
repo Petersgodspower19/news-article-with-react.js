@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import News from './News';
 import Header from './Header';
 import links from '../randomArray';
+
 
 function Main() {
   const [articles, setArticles] = useState([]);
@@ -9,30 +10,36 @@ function Main() {
   const handleChange = (e) => {
     switch (e.target.value) {
       case "business":
-        fetchNews("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=db87e9cd162147e4968361973325e619");
+        fetchNews("https://newsapi.org/v2/top-headlines?country=us&category=business");
         break;
       case "world":
-        fetchNews('https://newsapi.org/v2/everything?domains=wsj.com&apiKey=db87e9cd162147e4968361973325e619');
+        fetchNews('https://newsapi.org/v2/everything?domains=wsj.com');
         break;
       case "tech":
-        fetchNews('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=db87e9cd162147e4968361973325e619');
+        fetchNews('https://newsapi.org/v2/top-headlines?sources=techcrunch');
         break;
       case "tesla":
-        fetchNews('https://newsapi.org/v2/everything?q=tesla&from=2024-07-09&sortBy=publishedAt&apiKey=db87e9cd162147e4968361973325e619');
+        fetchNews('https://newsapi.org/v2/everything?q=tesla&from=2024-07-09&sortBy=publishedAt');
         break;
       default:
-        fetchNews('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=db87e9cd162147e4968361973325e619');
+        fetchNews('https://newsapi.org/v2/top-headlines?country=us&category=business');
         break;
     }
   }
 
   useEffect(() => {
-    fetchNews('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=db87e9cd162147e4968361973325e619');
+    fetchNews('https://newsapi.org/v2/everything?domains=wsj.com');
   }, []);
 
   const fetchNews = async (link) => {
     try {
-      let response = await fetch(link);
+      const apiKey = import.meta.env.VITE_API_KEY;
+      let response = await fetch(`${link}&apiKey=${apiKey}`);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
       let data = await response.json();
       if (data.articles) {
         setArticles(data.articles);
@@ -40,10 +47,11 @@ function Main() {
         setArticles([]); // Set an empty array if articles are not present
       }
     } catch (error) {
-      console.error(error);
+      console.error(`Fetch error: ${error}`);
       setArticles([]); // Set an empty array on error
     }
   };
+  
 
   const refresh = () => {
     const randomNumber = Math.floor(Math.random() * links.length);

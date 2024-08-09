@@ -1,9 +1,7 @@
-import React from 'react'
-
 function News({author, description, publishedAt, source, title, url, urlToImage}) {
   return (
     <div className='article'>
-      <img src={urlToImage} alt=''/>
+      <img src={urlToImage} alt={description}/>
       <div>
         <h5>{title}</h5>
         <p>{description}</p>
