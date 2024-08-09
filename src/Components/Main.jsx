@@ -9,7 +9,7 @@ function Main() {
   const handleChange = (e) => {
     switch (e.target.value) {
       case "business":
-        fetchNews('https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=db87e9cd162147e4968361973325e619');
+        fetchNews("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=db87e9cd162147e4968361973325e619");
         break;
       case "world":
         fetchNews('https://newsapi.org/v2/everything?domains=wsj.com&apiKey=db87e9cd162147e4968361973325e619');
