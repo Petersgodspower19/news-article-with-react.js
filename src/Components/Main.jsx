@@ -18,7 +18,7 @@ function Main() {
         fetchNews('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=db87e9cd162147e4968361973325e619');
         break;
       case "tesla":
-        fetchNews('https://newsapi.org/v2/everything?q=tesla&from=2024-07-07&sortBy=publishedAt&apiKey=db87e9cd162147e4968361973325e619');
+        fetchNews('https://newsapi.org/v2/everything?q=tesla&from=2024-07-09&sortBy=publishedAt&apiKey=db87e9cd162147e4968361973325e619');
         break;
       default:
         fetchNews('https://newsapi.org/v2/top-headlines?country=us&apiKey=db87e9cd162147e4968361973325e619');
